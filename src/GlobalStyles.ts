@@ -13,9 +13,8 @@ html{
   }
   
   html::-webkit-scrollbar{
-    width: 0.5vw;
-    height: 0.5vw;
-    background-color:red;
+    width: 0.8vw;
+    height: 0.8vw;
     
 }
 

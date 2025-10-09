@@ -6,13 +6,13 @@ import JobButton from "../atoms/Button";
 
 import InlineSVG from "react-inlinesvg";
 
-const btnIcons = [
-  "src/assets/icons/landing-page.svg",
-  "src/assets/icons/web-system.svg",
-  "src/assets/icons/saas.svg",
-];
+import landingPage from "/src/assets/icons/landing-page.svg";
+import webSystem from "/src/assets/icons/web-system.svg";
+import saas from "/src/assets/icons/saas.svg";
 
-export default function SelectionPanel({}) {
+const btnIcons = [landingPage, webSystem, saas];
+
+export default function SelectionPanel() {
   const [selectedJobId, setSelectedJobId] = useState<number>(0);
 
   return (
@@ -22,7 +22,7 @@ export default function SelectionPanel({}) {
         {btnIcons.map((iconSrc, idx) => (
           <JobButton
             isOn={selectedJobId === idx}
-            key={iconSrc}
+            key={`key${idx}`}
             onClick={() => setSelectedJobId(idx)}
           >
             <div />

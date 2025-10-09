@@ -7,13 +7,20 @@ import Icon from "../../atoms/Icon";
 import Helper from "../../atoms/Helper";
 import FloatingContainer from "../../atoms/FloatingContainer";
 import JobPreview from "../../atoms/JobPreview";
+import pdpDesktop from "/src/assets/previews/pais-de-pet-desktop.png"
+import pdpMobile from "/src/assets/previews/pais-de-pet-mobile.png"
+import pdpDesktop2 from "/src/assets/previews/pais-de-pet-desktop-2.png"
+import pdpMobile2 from "/src/assets/previews/pais-de-pet-mobile-2.png"
+import next from "/src/assets/icons/next.svg"
+import tailwind from "/src/assets/icons/tailwind.svg"
+import lucide from "/src/assets/icons/lucide.svg"
 
-export default function JobsSection({}) {
+export default function JobsSection() {
   return (
     <Container direction="column" items="center">
       <SelectionPanel />
       <Background
-        src="src/assets/backgrounds/jobs.svg"
+        src={"/backgrounds/jobs.svg"}
         bgSize="100% 100%"
         width="98%"
         height={`calc(98vw * 1.0892857142857143)`}
@@ -32,8 +39,8 @@ export default function JobsSection({}) {
           height="30%"
         >
           <JobPreview
-            desktopSrc="src/assets/previews/pais-de-pet-desktop.png"
-            mobileSrc="src/assets/previews/pais-de-pet-mobile.png"
+            desktopSrc={pdpDesktop}
+            mobileSrc={pdpMobile}
           />
 
           <Text>
@@ -75,27 +82,27 @@ export default function JobsSection({}) {
               <Text>Stack:</Text>
               <Icon
                 title="NextJS"
-                src="src/assets/icons/next.svg"
+                src={next}
                 size="3dvw"
                 color={Theme.emerald}
               />
               <Icon
                 title="TailwindCSS"
-                src="src/assets/icons/tailwind.svg"
+                src={tailwind}
                 size="4dvw"
                 color={Theme.emerald}
               />
               <Icon
                 title="Lucide"
-                src="src/assets/icons/lucide.svg"
+                src={lucide}
                 size="3dvw"
                 color={Theme.emerald}
               />
             </Container>
           </Container>
           <JobPreview
-            desktopSrc="src/assets/previews/pais-de-pet-mobile-2.png"
-            mobileSrc="src/assets/previews/pais-de-pet-mobile-2.png"
+            desktopSrc={pdpDesktop2}
+            mobileSrc={pdpMobile2}
           />
         </FloatingContainer>
       </Background>
