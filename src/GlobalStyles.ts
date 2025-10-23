@@ -15,26 +15,27 @@ html{
   font-family: JetBrains Mono, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
-
-  }
+}
   
   html::-webkit-scrollbar{
     width: 0.8vw;
     height: 0.8vw;
     
-}
+  }
+  
+  :root {
+    width:100%;
+    
+    scroll-behavior:smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
+    color: #EDEDED;
+    background-color: #242424;
 
-:root {
-  width:100%;
-
-  color-scheme: dark;
-  color: #EDEDED;
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {

@@ -8,7 +8,7 @@ import linkedin from "/src/assets/icons/linkedin.svg";
 import instagram from "/src/assets/icons/instagram.svg";
 import github from "/src/assets/icons/github.svg";
 import Section from "../../templates/Section";
-import FloatingContainer from "../../atoms/FloatingContainer";
+import StackSteam from "../../molecules/StackSteam";
 
 const linksList = [
   { href: "https://marcusvhx.vercel.app", src: linkedin },
@@ -21,8 +21,8 @@ const linksList = [
 
 export default function Home() {
   return (
-    <Section>
-      <Container gap="5rem" direction="row" items="center">
+    <Section id="home" content="center" >
+      <Container style={{translate:"0 -5rem"}} gap="5rem" direction="row" items="center">
         <Avatar src="https://avatars.githubusercontent.com/u/110700931?v=4" />
 
         <Container direction="column" items="center">
@@ -32,21 +32,14 @@ export default function Home() {
           <Container direction="row" gap="5rem" margin="2rem 0 0 0">
             {linksList.map(({ href, src }, idx) => (
               <a key={`link${idx}`} href={href} target="_blank">
-                <Icon color={Theme.fg} size={"3rem"} src={src} />
+                <Icon color={Theme.fg} size={"min(4dvw, 6rem)"} src={src} />
               </a>
             ))}
           </Container>
         </Container>
       </Container>
 
-      <FloatingContainer
-        direction="row"
-        style={{ backgroundColor: "#eee" }}
-        w="100%"
-        h="4rem"
-        left="0"
-        bottom="0"
-      ></FloatingContainer>
+      <StackSteam />
     </Section>
   );
 }

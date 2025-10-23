@@ -2,14 +2,8 @@ import styled from "styled-components";
 import { Theme } from "../../../Theme";
 
 export const Button = styled.button<{ is_selected?: boolean }>`
-  @media (max-resolution: 1.6dppx) {
-    width: clamp(2rem, calc(20dvw + 1rem), 14rem);
-    height: clamp(2rem, calc(20dvw + 1rem), 14rem);
-    border-width: ${({ is_selected }) =>
-      is_selected ? 0 : "clamp(0.3rem, 0.9dvw, 0.6rem)"};
-  }
-  width: clamp(3rem, calc(16dvw + 1rem), 18rem);
-  height: clamp(3rem, calc(16dvw + 1rem), 18rem);
+  width: clamp(5rem, calc(15dvw - 0.1rem), 8rem);
+  height: clamp(5rem, calc(15dvw - 0.1rem), 8rem);
 
   position: relative;
   overflow: hidden;
@@ -21,7 +15,7 @@ export const Button = styled.button<{ is_selected?: boolean }>`
   border-radius: 20%;
   border-color: ${Theme.emerald};
   border-width: ${({ is_selected }) =>
-    is_selected ? 0 : "clamp(0.3rem, 0.9dvw, 0.8rem)"};
+    is_selected ? 0 : "clamp(0.3rem, 0.3vw, 0.8rem)"};
   border-style: solid;
 
   cursor: pointer;

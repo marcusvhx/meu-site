@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import FloatingContainer from "../atoms/FloatingContainer";
-import ProjectPreview from "../atoms/ProjectPreview";
 import Text from "../atoms/Text";
 import Container from "../atoms/Container";
 
@@ -28,15 +27,15 @@ export default function ProjectDetails({
       direction="row"
       items="center"
       gap="1rem"
-      width="88%"
-      height="30%"
+      w="88%"
+      h="30%"
     >
-      <ProjectPreview desktopSrc={imageDesktop} mobileSrc={imageMobile} />
+      <img src={imageDesktop} />
       <Container
         style={{ order: isForDevs ? "-1" : "" }}
         direction="column"
         gap="0.5rem"
-        height="fit-content"
+        h="fit-content"
       >
         <Text
           style={{
