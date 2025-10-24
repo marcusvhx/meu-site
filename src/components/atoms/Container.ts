@@ -5,7 +5,13 @@ const Container = styled.div<{
   w?: string;
   h?: string;
   items?: "center" | "start" | "end";
-  content?: "center" | "start" | "end" | "space-between" | "space-around";
+  content?:
+    | "center"
+    | "start"
+    | "end"
+    | "space-between"
+    | "space-evenly"
+    | "space-around";
   gap?: string;
   margin?: string;
   relative?: boolean;

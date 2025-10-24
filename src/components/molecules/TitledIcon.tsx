@@ -15,9 +15,9 @@ const Tooltip = styled.div`
   border-radius: 0.4rem;
 
   position: absolute;
-  top: -120%;
+  top: -110%;
   left: 50%;
-  translate: -50%;
+  translate:-50% -50%;
 
   background-color: #121212;
 

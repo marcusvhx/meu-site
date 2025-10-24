@@ -17,6 +17,7 @@ const Section = styled.section<{
   align-items: ${({ items }) => items || "center"};
   gap: ${({ gap }) => gap};
   position: relative;
+  margin-top:5rem;
 `;
 
 export default Section;

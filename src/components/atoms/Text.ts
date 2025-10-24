@@ -10,11 +10,12 @@ const Text = styled.p<{
   align?: string;
   margin?: string;
 }>`
-  font-size: ${({ size }) => size || "1.2rem"};
+  font-size: clamp(1rem, 0.2vw, 1.4rem);
   display: inline;
   margin: ${({ margin }) => margin || "0"};
   text-align: ${({ align }) => align || "center"};
-  color: ${({ color }) => Theme[color || "fg"]};
+  color: ${Theme.fg};
+  white-space: pre-line;
 `;
 
 export default Text;

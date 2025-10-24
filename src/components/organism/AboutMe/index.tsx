@@ -19,13 +19,15 @@ const Grid = styled.div`
   width: 100%;
 
   svg {
+    height: 100%;
+    width: max(4rem, 7dvw);
     grid-row: 1 / span 2;
   }
 `;
 
 const PlaceHolder = styled.div<{ top: string; left: string }>`
-  width: min(calc(18dvw - 0.1rem), 25rem);
-  height: min(15dvw, 20rem);
+  width: max(11rem, calc(16dvw - 0.1rem));
+  height: max(10rem, 15dvw);
   border-radius: 1.5rem;
   background-color: ${Theme.bg};
   border: solid 0.5rem ${Theme.emerald};
@@ -38,21 +40,26 @@ const PlaceHolder = styled.div<{ top: string; left: string }>`
 export default function AboutMe() {
   const year = new Date().getFullYear() - 2022;
   return (
-    <Section id="about-me" gap="min(2dvw, 3rem)" direction="row">
-      <Container direction="column" relative w="40%" h="100%">
-        <PlaceHolder left="calc(50% - 10rem)" top="calc(50% - 10rem)">
+    <Section id="about-me" direction="row">
+      <Container
+        direction="column"
+        relative
+        style={{ minWidth: "40%" }}
+        h="100%"
+      >
+        <PlaceHolder left="calc(50% - 7dvw)" top="calc(50% - 7dvw)">
           <Icon color="" size="" src="" />
         </PlaceHolder>
         <PlaceHolder left="calc(50%)" top="calc(50%)" />
-        <PlaceHolder left="calc(50% + 10rem)" top="calc(50% + 10rem)" />
+        <PlaceHolder left="calc(50% + 7dvw)" top="calc(50% + 7dvw)" />
       </Container>
 
-      <Container gap="2rem" w="50%" direction="column" items="center">
+      <Container gap="2rem" direction="column" items="center">
         <Title>Sobre mim</Title>
 
-        <Container direction="column">
+        <Container direction="column" gap="1rem 0">
           <Text align="left">
-            <Text color="emerald" size="2rem">
+            <Text style={{ fontSize: "1.6rem", color: Theme.emerald }}>
               Olá
             </Text>
             , sou programador há {year} anos, desenvolvo sites institucionais e
@@ -60,7 +67,7 @@ export default function AboutMe() {
             porte que desejam, desde, fortalecer sua presença digital a
             implementar sistemas mais complexos.
           </Text>
-          <Text margin="2rem 0">
+          <Text>
             Meu foco está na experiência do cliente, e para isso considero
             importante:
           </Text>

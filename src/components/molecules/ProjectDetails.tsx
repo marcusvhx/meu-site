@@ -1,56 +1,46 @@
 import type { ReactNode } from "react";
-import FloatingContainer from "../atoms/FloatingContainer";
 import Text from "../atoms/Text";
 import Container from "../atoms/Container";
+import styled from "styled-components";
+import Subtitle from "../atoms/SubTitle";
 
+const ProjectPreview = styled.img`
+  height: max(10rem, 15vw);
+  border: none;
+`;
 export default function ProjectDetails({
   children,
-  imageDesktop,
-  imageMobile,
+  image,
+  title,
   text,
   isForDevs,
-  top,
-  left,
+  id,
 }: {
   children?: ReactNode; // unicamente para receber os incon da stack
-  imageDesktop: string;
-  imageMobile: string;
+  image: string;
+  title: string;
   text: string;
-  top: string;
-  left: string;
   isForDevs?: boolean;
+  id: string;
 }) {
   return (
-    <FloatingContainer
-      top={top}
-      left={left}
+    <Container
+      id={id}
       direction="row"
-      items="center"
-      gap="1rem"
-      w="88%"
-      h="30%"
+      content={isForDevs ? "end" : "start"}
+      gap="1.5rem"
+      w="100%"
+      h="100%"
     >
-      <img src={imageDesktop} />
+      <ProjectPreview src={image} />
       <Container
         style={{ order: isForDevs ? "-1" : "" }}
         direction="column"
-        gap="0.5rem"
+        gap="0 0.5rem"
         h="fit-content"
       >
-        <Text
-          style={{
-            display:"-webkit-box",
-            WebkitLineClamp:5,
-            WebkitBoxOrient:"vertical",
-            overflow: "hidden",
-            maxWidth: "100%",
-            textOverflow: "ellipsis",
-            
-          }}
-          align={isForDevs ? "right" : "left"}
-        >
-          {text}
-        </Text>
+        <Subtitle style={{textAlign:isForDevs?"end":"start"}}>{title}</Subtitle>
+        <Text align={isForDevs ? "right" : "left"}>{text}</Text>
         {isForDevs && (
           <Container direction="row" gap="0.8rem" content="end" items="center">
             <Text>Stack:</Text>
@@ -58,6 +48,6 @@ export default function ProjectDetails({
           </Container>
         )}
       </Container>
-    </FloatingContainer>
+    </Container>
   );
 }

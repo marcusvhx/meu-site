@@ -11,21 +11,32 @@ import saas from "/src/assets/icons/saas.svg";
 
 const btnIcons = [landingPage, webSystem, saas];
 
-export default function SelectionPanel() {
-  const [selectedProjectId, setSelectedProjectId] = useState<number>(0);
-
+export default function SelectionPanel({
+  projectIdx,
+  setProjectIdx,
+}: {
+  projectIdx: number;
+  setProjectIdx: React.Dispatch<React.SetStateAction<number>>;
+}) {
   return (
-      <Container id="panel" direction="column" gap="3rem" margin="2rem 0">
-        {btnIcons.map((iconSrc, idx) => (
-          <ProjectButton
-            isOn={selectedProjectId === idx}
-            key={`key${idx}`}
-            onClick={() => setSelectedProjectId(idx)}
-          >
-            <div />
-            <InlineSVG src={iconSrc} />
-          </ProjectButton>
-        ))}
-      </Container>
+    <Container
+      id="panel"
+      direction="column"
+      gap="2rem"
+      h="100%"
+      content="space-evenly"
+      margin="2rem 0"
+    >
+      {btnIcons.map((iconSrc, idx) => (
+        <ProjectButton
+          isOn={projectIdx === idx}
+          key={`key${idx}`}
+          onClick={() => setProjectIdx(idx)}
+        >
+          <div />
+          <InlineSVG src={iconSrc} />
+        </ProjectButton>
+      ))}
+    </Container>
   );
 }

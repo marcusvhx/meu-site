@@ -13,9 +13,11 @@ const THeader = styled.header`
   height: 5rem;
   width: 100%;
   display: flex;
+  border-bottom:dashed 0.3rem pink;
 
-  position: sticky;
+  position: fixed;
   top: 0;
+  left:0;
   z-index:3;
 
   background-color: ${Theme.bg};
