@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 html{
+
   font-size: 62.5%; // 1rem = 10px
   scroll-behavior: smooth;
   font-family: JetBrains Mono, Arial, sans-serif;
@@ -18,9 +19,7 @@ html{
 }
   
   html::-webkit-scrollbar{
-    width: 0.8vw;
-    height: 0.8vw;
-    
+    display:none;    
   }
   
   :root {
