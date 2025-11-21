@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import Text from "../atoms/Text";
 import Container from "../atoms/Container";
-import styled from "styled-components";
 import Subtitle from "../atoms/SubTitle";
 import FloatingContainer from "../atoms/FloatingContainer";
 import Icon from "../atoms/Icon";
@@ -9,13 +8,9 @@ import fullscreen from "/src/assets/icons/fullscreen.svg";
 import link from "/src/assets/icons/link.svg";
 import { Theme } from "../../Theme";
 import Link from "../atoms/Link";
+import ProjectPreview from "../atoms/ProjectPreview";
+import type { iMouseClickEvent } from "./ImageGalery";
 
-const ProjectPreview = styled.img`
-  display: flex;
-  height: 100%;
-  border: none;
-  object-fit: contain;
-`;
 export default function ProjectDetails({
   children,
   image,
@@ -23,7 +18,7 @@ export default function ProjectDetails({
   text,
   isForDevs,
   id,
-  onClick,
+  toggleFullscreen,
   projectLink,
 }: {
   children?: ReactNode; // unicamente para receber os incon da stack
@@ -32,7 +27,7 @@ export default function ProjectDetails({
   text: string;
   isForDevs?: boolean;
   id: string;
-  onClick?: (e: any) => void;
+  toggleFullscreen?: (e: iMouseClickEvent) => void;
   projectLink?: string;
 }) {
   return (
@@ -57,18 +52,18 @@ export default function ProjectDetails({
                 style={{
                   cursor: "pointer",
                 }}
-                color={Theme.emerald}
-                size="2.5rem"
+                color={Theme.bg}
+                size="2rem"
                 src={link}
               />
             </Link>
             <Icon
-              onClick={onClick}
+              onClick={(e)=> toggleFullscreen && toggleFullscreen(e)}
               style={{
                 cursor: "pointer",
               }}
-              color={Theme.emerald}
-              size="2.5rem"
+              color={Theme.bg}
+              size="2rem"
               src={fullscreen}
             />
           </FloatingContainer>

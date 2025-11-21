@@ -8,16 +8,21 @@ import Home from "./components/organism/Home/index.tsx";
 import AboutMe from "./components/organism/AboutMe/index.tsx";
 import Projects from "./components/organism/Projects/index.tsx";
 import Contact from "./components/organism/Contact/index.tsx";
+import Footer from "./components/molecules/Footer.tsx";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <ThemeProvider theme={Theme}>
-      <GlobalStyles />
-      <Header />
-      <Home  />
-      <AboutMe />
-      <Projects/>
-      <Contact/>
-    </ThemeProvider>
-  </StrictMode>
-);
+function App() {
+  return (
+    <StrictMode>
+      <ThemeProvider theme={Theme}>
+        <GlobalStyles />
+        <Header />
+        <Home />
+        <AboutMe />
+        <Projects />
+        <Contact />
+        <Footer />
+      </ThemeProvider>
+    </StrictMode>
+  );
+}
+createRoot(document.getElementById("root")!).render(<App />);

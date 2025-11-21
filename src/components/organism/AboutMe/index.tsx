@@ -10,7 +10,16 @@ import comunication from "/src/assets/icons/comunication.svg";
 import suport from "/src/assets/icons/suport.svg";
 import { Theme } from "../../../Theme";
 
-const Grid = styled.div`
+const AboutSection = styled(Section)`
+  flex-direction: row;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const TextIconContainer = styled.div<{ align: "left" | "right" }>`
   display: grid;
   align-items: center;
   grid-template-columns: auto auto;
@@ -23,35 +32,53 @@ const Grid = styled.div`
     width: max(4rem, 7dvw);
     grid-row: 1 / span 2;
   }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    svg {
+      display: none;
+      /* width: calc(8vw - 0.1rem);
+      height: calc(8vw - 0.1rem);
+      position: absolute;
+      top: -1rem;
+      left: ${({ align }) => align == "right" && "1rem"};
+      right: ${({ align }) => align == "left" && "1rem"}; */
+    }
+
+    h2 {
+      width: 100%;
+    }
+  }
 `;
 
-const PlaceHolder = styled.div<{ top: string; left: string }>`
+const PlaceHolder = styled.div`
   width: max(11rem, calc(16dvw - 0.1rem));
   height: max(10rem, 15dvw);
   border-radius: 1.5rem;
   background-color: ${Theme.bg};
   border: solid 0.5rem ${Theme.emerald};
-  position: absolute;
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
-  translate: -50% -50%;
+
+  place-self: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default function AboutMe() {
   const year = new Date().getFullYear() - 2022;
   return (
-    <Section id="about-me" direction="row">
+    <AboutSection id="about-me" direction="row">
       <Container
         direction="column"
         relative
         style={{ minWidth: "40%" }}
         h="100%"
       >
-        <PlaceHolder left="calc(50% - 7dvw)" top="calc(50% - 7dvw)">
-          <Icon color="" size="" src="" />
-        </PlaceHolder>
-        <PlaceHolder left="calc(50%)" top="calc(50%)" />
-        <PlaceHolder left="calc(50% + 7dvw)" top="calc(50% + 7dvw)" />
+        <PlaceHolder />
       </Container>
 
       <Container gap="2rem" direction="column" items="center">
@@ -73,7 +100,7 @@ export default function AboutMe() {
           </Text>
         </Container>
 
-        <Grid>
+        <TextIconContainer align="left">
           <Icon color="#fff" size="12rem" src={comunication} />
           <Subtitle>Comunicação</Subtitle>
           <Text align="left">
@@ -83,10 +110,10 @@ export default function AboutMe() {
             projeto. Por isso disponibilizo relatórios diários, simples e
             diretos, para que o cliente possa acompanhar o desenvolvimento.
           </Text>
-        </Grid>
+        </TextIconContainer>
 
-        <Grid>
-          <Subtitle style={{ justifySelf: "end" }}>Suporte</Subtitle>
+        <TextIconContainer align="right">
+          <Subtitle style={{ textAlign: "right" }}>Suporte</Subtitle>
           <Text align="right">
             O projeto não acaba ao fim do desenvolvimento, quando um sistema
             fica pronto é necessário prestar suporte constante durante seu uso,
@@ -100,8 +127,8 @@ export default function AboutMe() {
             size="12rem"
             src={suport}
           />
-        </Grid>
+        </TextIconContainer>
       </Container>
-    </Section>
+    </AboutSection>
   );
 }

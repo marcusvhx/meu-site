@@ -5,7 +5,7 @@ import styled from "styled-components";
 import ProjectDetails from "../../molecules/ProjectDetails";
 import { Theme } from "../../../Theme";
 import TitledIcon from "../../molecules/TitledIcon";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import ImageGalery from "../../molecules/ImageGalery";
 import { projectsData } from "./projectsData";
 
@@ -32,12 +32,32 @@ const ProjectsSection = styled(Section)`
   #detail2 {
     grid-area: detail2;
   }
+
+    @media screen and (max-width:768px) {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    #panel{
+      flex-direction:row;
+    }
+
+  #detail1 {
+    flex-wrap:wrap;
+    width: 100%;
+  }}
+
+
+  p{
+    width:auto;
+  }
 `;
+
 export default function Projects() {
   const [projectType, setProjectType] = useState(0);
   const [showPics, setShowPics] = useState(false);
 
-  const handleShowPics = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleShowPics = (e: MouseEvent) => {
     //@ts-ignore
     if (showPics && e.target.classList.contains("wrapper")) {
       setShowPics(false);
@@ -51,7 +71,10 @@ export default function Projects() {
     <ProjectsSection id="projects">
       <Title id="title">Conheça meu trabalho</Title>
 
-      <SelectionPanel projectIdx={projectType} setProjectIdx={setProjectType} />
+      <SelectionPanel
+        projectIdx={projectType}
+        setProjectIdx={setProjectType}
+      />
 
       <ImageGalery
         imgs={projectsData[projectType].forNormals.imgs}
@@ -64,7 +87,7 @@ export default function Projects() {
         text={projectsData[projectType].forNormals.text}
         projectLink={projectsData[projectType].forNormals.link}
         id="datail1"
-        onClick={handleShowPics}
+        toggleFullscreen={handleShowPics}
       />
 
       <ProjectDetails

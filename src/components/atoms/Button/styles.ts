@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Theme } from "../../../Theme";
 
-export const Button = styled.button<{ is_selected?: boolean }>`
+const Button = styled.button<{
+  is_selected?: boolean;
+}>`
   width: clamp(4rem, calc(15dvw - 0.1rem), 6rem);
   height: clamp(4rem, calc(15dvw - 0.1rem), 6rem);
 
@@ -28,7 +30,6 @@ export const Button = styled.button<{ is_selected?: boolean }>`
 
   & div {
     position: absolute;
-    z-index: -1;
     width: 100%;
     height: 100%;
     opacity: ${({ is_selected }) => (is_selected ? 1 : 0)};
@@ -42,6 +43,7 @@ export const Button = styled.button<{ is_selected?: boolean }>`
   }
 
   & svg {
+    z-index:2;
     width: 85%;
     height: 85%;
   }
@@ -51,3 +53,5 @@ export const Button = styled.button<{ is_selected?: boolean }>`
       is_selected ? Theme.bg : color || Theme.fg};
   }
 `;
+
+export default Button;

@@ -22,9 +22,11 @@ html{
     display:none;    
   }
   
-  :root {
+  #root {
     width:100%;
-    
+    display:flex;
+    flex-direction:column;
+
     scroll-behavior:smooth;
     scroll-padding-top: 5rem;
     color-scheme: dark;
@@ -35,9 +37,5 @@ html{
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  display: inline;
 }
 `;

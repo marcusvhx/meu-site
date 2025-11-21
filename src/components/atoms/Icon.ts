@@ -2,7 +2,7 @@ import InlineSVG from "react-inlinesvg";
 import styled from "styled-components";
 
 const Icon = styled(InlineSVG)<{ size: string; color: string }>`
-  display: inline;
+  display: flex;
   width: ${({ size }) => size};
   height: ${({ size }) => size};
 

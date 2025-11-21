@@ -1,4 +1,3 @@
-import Container from "../atoms/Container";
 import Icon from "../atoms/Icon";
 import styled from "styled-components";
 
@@ -24,7 +23,7 @@ const Tooltip = styled.div`
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s linear;
-
+  
   pointer-events: none;
   text-transform: capitalize;
   white-space: nowrap;
@@ -53,10 +52,13 @@ const Wrapper = styled.div`
   width: min-content;
   height: min-content;
   position: relative;
+  z-index:5;
+
 
   &:hover div {
     visibility: visible;
     opacity: 1;
+    z-index:5;
   }
 `;
 

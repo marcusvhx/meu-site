@@ -3,7 +3,6 @@ import { Theme } from "../../Theme";
 
 const Link = styled.a`
   display: inline;
-  color: ${Theme.fg};
   text-decoration:none;
   font-size:1.4rem;
   color:${Theme.emeraldLight};

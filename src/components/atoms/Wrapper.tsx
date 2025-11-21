@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div<{ show: boolean }>`

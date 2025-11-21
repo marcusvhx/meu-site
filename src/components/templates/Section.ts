@@ -18,12 +18,11 @@ const Section = styled.section<{
   gap: ${({ gap }) => gap};
 
   position: relative;
-  margin-top:5rem;
   padding: 2rem;
-  
-  @media screen and (max-width: 768px) {
+  margin-top: 5rem;
+  @media screen and (max-width:800px) {
     padding: 1rem;
-
+    min-height: calc(40rem);
   }
 `;
 

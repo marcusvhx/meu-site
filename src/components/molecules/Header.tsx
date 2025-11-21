@@ -4,7 +4,6 @@ import Link from "../atoms/Link";
 import Icon from "../atoms/Icon";
 
 import logo from "/src/assets/icons/logo.svg";
-import { Theme } from "../../Theme";
 
 /**
  * tag de cabeçalho estilizado

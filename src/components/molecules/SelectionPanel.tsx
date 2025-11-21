@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Container from "../atoms/Container";
 import ProjectButton from "../atoms/Button";
 
@@ -9,7 +7,7 @@ import landingPage from "/src/assets/icons/landing-page.svg";
 import webSystem from "/src/assets/icons/web-system.svg";
 import saas from "/src/assets/icons/saas.svg";
 
-const btnIcons = [landingPage, webSystem, saas];
+const btnSrc = [landingPage, webSystem, saas];
 
 export default function SelectionPanel({
   projectIdx,
@@ -27,14 +25,14 @@ export default function SelectionPanel({
       content="space-evenly"
       margin="2rem 0"
     >
-      {btnIcons.map((iconSrc, idx) => (
+      {btnSrc.map((src, idx) => (
         <ProjectButton
           isOn={projectIdx === idx}
           key={`key${idx}`}
           onClick={() => setProjectIdx(idx)}
         >
           <div />
-          <InlineSVG src={iconSrc} />
+          <InlineSVG src={src} />
         </ProjectButton>
       ))}
     </Container>

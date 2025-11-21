@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Arrow from "../atoms/Arrow";
 import Wrapper from "../atoms/Wrapper";
+import type { MouseEvent } from "react";
+
+export type iMouseClickEvent= MouseEvent;
 
 const ImageSlot = styled.div`
   width: 80%;
@@ -27,6 +30,7 @@ const Image = styled.img`
   scroll-snap-align: center;
 `;
 
+
 export default function ImageGalery({
   show,
   imgs,
@@ -34,7 +38,7 @@ export default function ImageGalery({
 }: {
   show: boolean;
   imgs: string[];
-  closeWrapper: (e?: any) => void;
+  closeWrapper: (e: iMouseClickEvent) => void;
 }) {
   const scrollImages = (toRight: boolean) => {
     const slots = document.querySelector(".slots");
