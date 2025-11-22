@@ -8,16 +8,18 @@ import TitledIcon from "../../molecules/TitledIcon";
 import { useState, type MouseEvent } from "react";
 import ImageGalery from "../../molecules/ImageGalery";
 import { projectsData } from "./projectsData";
+import Container from "../../atoms/Container";
+import Text from "../../atoms/Text";
 
 const ProjectsSection = styled(Section)`
   display: grid;
   align-items: center;
   column-gap: 3rem;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   grid-template-columns: min-content auto;
-  grid-template-rows: min-content repeat(2, auto);
+  grid-template-rows: repeat(4, min-content);
 
-  grid-template-areas: "title title" "panel detail1" "panel detail2";
+  grid-template-areas: "title title" "panel detail1" "panel detail2" "showBtn showBtn";
   #title {
     grid-area: title;
     justify-self: center;
@@ -32,30 +34,59 @@ const ProjectsSection = styled(Section)`
   #detail2 {
     grid-area: detail2;
   }
+  #devInfoBtn {
+    grid-area: showBtn;
+  }
 
-    @media screen and (max-width:768px) {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    #panel{
-      flex-direction:row;
+    #panel {
+      flex-direction: row;
     }
 
-  #detail1 {
-    flex-wrap:wrap;
-    width: 100%;
-  }}
+    #detail1 {
+      width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+      .projectsContainer {
+        flex-direction: column;
+      }
 
+      .projectsImage {
+        width: 100%;
+      }
 
-  p{
-    width:auto;
+      .projectsImageContainer {
+        width: 100%;
+        height: max(10rem, 20dvw);
+        background-color: #ececec;
+      }
+      .forDevs > .projectsImageContainer {
+        display: none;
+      }
+    }
   }
 `;
 
+const DevInfoBox = styled(Container)<{ isOpen: boolean }>`
+  height: ${({ isOpen }) => (isOpen ? "fit-content" : 0)};
+  overflow: hidden;
+`;
+
+const ShowDevInfo = styled(Text)`
+  cursor: pointer;
+  text-decoration: underline;
+  color: ${Theme.emeraldLight};
+  justify-self:end;
+  
+`;
 export default function Projects() {
   const [projectType, setProjectType] = useState(0);
   const [showPics, setShowPics] = useState(false);
+  const [showDevInfo, setShowDevInfo] = useState(false);
 
   const handleShowPics = (e: MouseEvent) => {
     //@ts-ignore
@@ -71,10 +102,7 @@ export default function Projects() {
     <ProjectsSection id="projects">
       <Title id="title">Conheça meu trabalho</Title>
 
-      <SelectionPanel
-        projectIdx={projectType}
-        setProjectIdx={setProjectType}
-      />
+      <SelectionPanel projectIdx={projectType} setProjectIdx={setProjectType} />
 
       <ImageGalery
         imgs={projectsData[projectType].forNormals.imgs}
@@ -90,23 +118,32 @@ export default function Projects() {
         toggleFullscreen={handleShowPics}
       />
 
-      <ProjectDetails
-        title={projectsData[projectType].forDevs.title}
-        image={projectsData[projectType].forDevs.previewImg}
-        text={projectsData[projectType].forDevs.text}
-        isForDevs
-        id="datail2"
+      <DevInfoBox direction="row" isOpen={showDevInfo}>
+        <ProjectDetails
+          title={projectsData[projectType].forDevs.title}
+          image={projectsData[projectType].forDevs.previewImg}
+          text={projectsData[projectType].forDevs.text}
+          isForDevs
+          id="datail2"
+        >
+          {projectsData[projectType].forDevs.stack?.map((tech, idx) => (
+            <TitledIcon
+              key={tech.title + idx}
+              title={tech.title}
+              src={tech.icon}
+              size="min(3rem, 3dvw)"
+              color={Theme.emerald}
+            />
+          ))}
+        </ProjectDetails>
+      </DevInfoBox>
+
+      <ShowDevInfo
+      id='devInfoBtn'
+        onClick={() => setShowDevInfo((old) => !old)}
       >
-        {projectsData[projectType].forDevs.stack?.map((tech, idx) => (
-          <TitledIcon
-            key={tech.title + idx}
-            title={tech.title}
-            src={tech.icon}
-            size="min(3dvw, 3rem)"
-            color={Theme.emerald}
-          />
-        ))}
-      </ProjectDetails>
+        {showDevInfo ? "Ocultar informações" : "Informações para devs..."}
+      </ShowDevInfo>
     </ProjectsSection>
   );
 }

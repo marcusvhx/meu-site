@@ -16,6 +16,7 @@ html{
   font-family: JetBrains Mono, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
+  scroll-padding-top: 5rem;
 }
   
   html::-webkit-scrollbar{
@@ -28,7 +29,6 @@ html{
     flex-direction:column;
 
     scroll-behavior:smooth;
-    scroll-padding-top: 5rem;
     color-scheme: dark;
     color: #EDEDED;
     background-color: #242424;

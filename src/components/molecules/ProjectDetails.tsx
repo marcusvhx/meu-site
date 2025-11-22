@@ -38,8 +38,9 @@ export default function ProjectDetails({
       gap="1.5rem"
       w="100%"
       h="100%"
+      className={`projectsContainer ${isForDevs && "forDevs"}`}
     >
-      <Container direction="row" h="max(10rem, calc(16vw - 0.1rem))" relative>
+      <Container className="projectsImageContainer" style={{placeSelf:"center"}} direction="row" h="max(10rem, calc(16vw - 0.1rem))" relative>
         {!isForDevs && (
           <FloatingContainer
             direction="row"
@@ -68,13 +69,13 @@ export default function ProjectDetails({
             />
           </FloatingContainer>
         )}
-        <ProjectPreview src={image} />
+        <ProjectPreview className="projectsImage" src={image} />
       </Container>
       <Container
         style={{ order: isForDevs ? "-1" : "" }}
         direction="column"
         gap="1rem"
-        w="max(20rem, 60%)"
+        w="100%"
       >
         <Subtitle style={{ textAlign: isForDevs ? "end" : "start" }}>
           {title}

@@ -16,14 +16,14 @@ const Tooltip = styled.div`
   position: absolute;
   top: -110%;
   left: 50%;
-  translate:-50% -50%;
+  translate: -50% -50%;
 
   background-color: #121212;
 
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s linear;
-  
+
   pointer-events: none;
   text-transform: capitalize;
   white-space: nowrap;
@@ -45,6 +45,21 @@ const Tooltip = styled.div`
 
     background-color: #121212;
   }
+
+    @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+
+    height: 3rem;
+    min-width: 0.5rem;
+
+  &::after {
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 75%;
+    
+  }
+  }
+
 `;
 
 const Wrapper = styled.div`
@@ -52,13 +67,12 @@ const Wrapper = styled.div`
   width: min-content;
   height: min-content;
   position: relative;
-  z-index:5;
-
+  z-index: 5;
 
   &:hover div {
     visibility: visible;
     opacity: 1;
-    z-index:5;
+    z-index: 5;
   }
 `;
 

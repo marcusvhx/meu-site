@@ -33,24 +33,9 @@ const TextIconContainer = styled.div<{ align: "left" | "right" }>`
     grid-row: 1 / span 2;
   }
   @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
-
     svg {
-      display: none;
-      /* width: calc(8vw - 0.1rem);
-      height: calc(8vw - 0.1rem);
-      position: absolute;
-      top: -1rem;
-      left: ${({ align }) => align == "right" && "1rem"};
-      right: ${({ align }) => align == "left" && "1rem"}; */
-    }
-
-    h2 {
-      width: 100%;
-    }
+      width: max(4rem, 8dvw);
+  }
   }
 `;
 

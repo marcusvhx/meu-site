@@ -20,7 +20,8 @@ const Section = styled.section<{
   position: relative;
   padding: 2rem;
   margin-top: 5rem;
-  @media screen and (max-width:800px) {
+
+  @media screen and (max-width:600px) {
     padding: 1rem;
     min-height: calc(40rem);
   }
