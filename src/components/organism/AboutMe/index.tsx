@@ -70,7 +70,7 @@ export default function AboutMe() {
         <PlaceHolder />
       </Container>
 
-      <Container gap="2rem" direction="column" items="center">
+      <Container gap="4rem" direction="column" items="center">
         <Title>Sobre mim</Title>
 
         <Container direction="column" gap="1rem 0">
