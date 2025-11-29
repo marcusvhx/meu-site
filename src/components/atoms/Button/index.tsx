@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { Button } from "./styles";
+import Button from "./styles";
 
-export default function JobButton({
+export default function ProjectButton({
   children,
   isOn,
   onClick,

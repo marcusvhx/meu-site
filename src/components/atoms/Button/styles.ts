@@ -1,15 +1,11 @@
 import styled from "styled-components";
 import { Theme } from "../../../Theme";
 
-export const Button = styled.button<{ is_selected?: boolean }>`
-  @media (max-resolution: 1.6dppx) {
-    width: clamp(2rem, calc(20dvw + 1rem), 14rem);
-    height: clamp(2rem, calc(20dvw + 1rem), 14rem);
-    border-width: ${({ is_selected }) =>
-      is_selected ? 0 : "clamp(0.3rem, 0.9dvw, 0.6rem)"};
-  }
-  width: clamp(3rem, calc(16dvw + 1rem), 18rem);
-  height: clamp(3rem, calc(16dvw + 1rem), 18rem);
+const Button = styled.button<{
+  is_selected?: boolean;
+}>`
+  width: clamp(4rem, calc(15dvw - 0.1rem), 6rem);
+  height: clamp(4rem, calc(15dvw - 0.1rem), 6rem);
 
   position: relative;
   overflow: hidden;
@@ -19,9 +15,9 @@ export const Button = styled.button<{ is_selected?: boolean }>`
   justify-content: center;
 
   border-radius: 20%;
-  border-color: ${Theme.emerald};
+  border-color: ${Theme.colors.emerald};
   border-width: ${({ is_selected }) =>
-    is_selected ? 0 : "clamp(0.3rem, 0.9dvw, 0.8rem)"};
+    is_selected ? 0 : "clamp(0.3rem, 0.2vw, 0.6rem)"};
   border-style: solid;
 
   cursor: pointer;
@@ -34,26 +30,28 @@ export const Button = styled.button<{ is_selected?: boolean }>`
 
   & div {
     position: absolute;
-    z-index: -1;
     width: 100%;
     height: 100%;
     opacity: ${({ is_selected }) => (is_selected ? 1 : 0)};
     transition: all ease-in-out 0.2s;
     background: linear-gradient(
       135deg,
-      ${Theme.emerald},
-      ${Theme.emeraldLight},
-      ${Theme.emeraldDark}
+      ${Theme.colors.emerald},
+      ${Theme.colors.emeraldLight},
+      ${Theme.colors.emeraldDark}
     );
   }
 
   & svg {
+    z-index:2;
     width: 85%;
     height: 85%;
   }
 
   & path {
     fill: ${({ is_selected, color }) =>
-      is_selected ? Theme.bg : color || Theme.fg};
+      is_selected ? Theme.colors.bg : color || Theme.colors.fg};
   }
 `;
+
+export default Button;

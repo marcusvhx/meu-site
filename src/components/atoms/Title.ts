@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 const Title = styled.h1`
-  @media (max-resolution: 1.6dppx) {
-    font-size: clamp(4rem, 5dvw + 1rem, 5rem);
-  }
-
-  font-size: clamp(2.6rem, 6dvw + 1rem, 5.6rem);
-  line-height:1.1;
+  font-size: clamp(2rem,calc(3.6dvw - 0.1rem), 2.8rem);
+  line-height: 1.1;
 `;
-export default Title
+export default Title;

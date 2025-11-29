@@ -1,28 +1,22 @@
 import styled from "styled-components";
-import { Theme, type tColor } from "../../Theme";
+import { Theme } from "../../Theme";
 
 const Text = styled.p<{
+  /** font-size */
   size?: string;
-  color?: tColor;
+  /** obrigatoriamente uma cor que esteja no tema */
+  color?: string;
+  /** text-align */
   align?: string;
   margin?: string;
 }>`
-  @media (max-resolution: 1.6dppx) {
-    font-size: clamp(
-      1.2rem,
-      calc(${({ size }) => size || "1dvw"} + 0.8rem),
-      2rem
-    );
-  }
-  font-size: clamp(
-    1.4rem,
-    calc(${({ size }) => size || "1.2dvw"} + 0.8rem),
-    2rem
-  );
+  font-size: ${({ size }) =>
+    size || "clamp(1.2rem,calc(0.4vw + 0.1rem),1.4rem)"};
   display: inline;
   margin: ${({ margin }) => margin || "0"};
-  text-align: ${({ align }) => align};
-  color: ${({ color }) => Theme[color || "fg"]};
+  text-align: ${({ align }) => align || "center"};
+  color: ${({ color }) => color || Theme.colors.fg};
+  white-space: pre-line;
 `;
 
 export default Text;

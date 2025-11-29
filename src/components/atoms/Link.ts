@@ -3,10 +3,15 @@ import { Theme } from "../../Theme";
 
 const Link = styled.a`
   display: inline;
-  color: ${Theme.fg};
+  text-decoration:none;
+  font-size:1.4rem;
+  color:${Theme.colors.emeraldLight};
+  transition:all;
 
   &:hover {
-    color: ${Theme.emeraldLight};
+    cursor:pointer;
+    color: ${Theme.colors.emerald};
+    text-decoration: underline;
   }
 `;
 

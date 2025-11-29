@@ -2,16 +2,22 @@ import styled from "styled-components";
 
 const Container = styled.div<{
   direction: "row" | "column";
-  width?: string;
-  height?: string;
+  w?: string;
+  h?: string;
   items?: "center" | "start" | "end";
-  content?: "center" | "start" | "end" | "space-between" | "space-around";
+  content?:
+    | "center"
+    | "start"
+    | "end"
+    | "space-between"
+    | "space-evenly"
+    | "space-around";
   gap?: string;
   margin?: string;
   relative?: boolean;
 }>`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ w }) => w};
+  height: ${({ h }) => h};
 
   display: flex;
   flex-direction: ${({ direction }) => direction};
