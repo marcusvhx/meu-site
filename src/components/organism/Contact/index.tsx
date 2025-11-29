@@ -11,6 +11,16 @@ import Label from "../../atoms/Label";
 import Input from "../../atoms/Input";
 import TextArea from "../../atoms/TextArea";
 import Submit from "../../atoms/Submit";
+import styled from "styled-components";
+
+const ContactSection = styled(Section)`
+  height: calc(100dvh - 5rem);
+  gap: 2rem;
+  justify-content: center;
+  @media screen and (max-width: ${Theme.devices.mobileLg}) {
+    padding-bottom: 4rem;
+  }
+`;
 
 export default function Contact({}: {}) {
   const submit = (e: FormEvent<HTMLButtonElement>) => {
@@ -26,20 +36,20 @@ export default function Contact({}: {}) {
   };
 
   return (
-    <Section gap="2rem" id="contact" content="center">
+    <ContactSection gap="2rem" id="contact" content="center">
       <Icon
         style={{ position: "absolute", top: 0, right: 0 }}
-        color={Theme.emerald}
-        size="max(30rem, 20dvw)"
+        color={Theme.colors.emerald}
+        size="clamp(20rem, 30dvw, 30rem)"
         src={corner}
       />
       <Icon
         style={{ position: "absolute", bottom: 0, left: 0, rotate: "180deg" }}
-        color={Theme.emerald}
-        size="max(30rem, 20dvw)"
+        color={Theme.colors.emerald}
+        size="clamp(20rem, 30dvw, 30rem)"
         src={corner}
       />
-      <Title>Vamos conversar?</Title>
+      <Title>Precisa de ajuda?</Title>
       <Form>
         <Container w="100%" direction="column" items="start" gap="0.5rem">
           <Label htmlFor="IName">Nome</Label>
@@ -58,6 +68,6 @@ export default function Contact({}: {}) {
           Enviar mensagem pelo whatsapp
         </Submit>
       </Form>
-    </Section>
+    </ContactSection>
   );
 }

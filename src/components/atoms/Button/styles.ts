@@ -15,7 +15,7 @@ const Button = styled.button<{
   justify-content: center;
 
   border-radius: 20%;
-  border-color: ${Theme.emerald};
+  border-color: ${Theme.colors.emerald};
   border-width: ${({ is_selected }) =>
     is_selected ? 0 : "clamp(0.3rem, 0.2vw, 0.6rem)"};
   border-style: solid;
@@ -36,9 +36,9 @@ const Button = styled.button<{
     transition: all ease-in-out 0.2s;
     background: linear-gradient(
       135deg,
-      ${Theme.emerald},
-      ${Theme.emeraldLight},
-      ${Theme.emeraldDark}
+      ${Theme.colors.emerald},
+      ${Theme.colors.emeraldLight},
+      ${Theme.colors.emeraldDark}
     );
   }
 
@@ -50,7 +50,7 @@ const Button = styled.button<{
 
   & path {
     fill: ${({ is_selected, color }) =>
-      is_selected ? Theme.bg : color || Theme.fg};
+      is_selected ? Theme.colors.bg : color || Theme.colors.fg};
   }
 `;
 

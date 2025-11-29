@@ -76,7 +76,7 @@ export default function StackSteam({}: {}) {
             <TitledIcon
               title={name}
               key={name + idx}
-              color={Theme.emerald}
+              color={Theme.colors.emerald}
               // size="max(3rem, 5vw)"
               size="clamp(3rem, calc(4vw - 0.1rem), 3.5rem)"
               src={src}

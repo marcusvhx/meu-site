@@ -53,7 +53,7 @@ export default function ProjectDetails({
                 style={{
                   cursor: "pointer",
                 }}
-                color={Theme.bg}
+                color={Theme.colors.bg}
                 size="2rem"
                 src={link}
               />
@@ -63,7 +63,7 @@ export default function ProjectDetails({
               style={{
                 cursor: "pointer",
               }}
-              color={Theme.bg}
+              color={Theme.colors.bg}
               size="2rem"
               src={fullscreen}
             />

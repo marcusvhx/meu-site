@@ -40,7 +40,7 @@ export default function Home() {
           <Container direction="row" gap="3rem" margin="2rem 0 0 0">
             {linksList.map(({ href, src }, idx) => (
               <a key={`link${idx}`} href={href} target="_blank">
-                <Icon color={Theme.fg} size={"4rem"} src={src} />
+                <Icon color={Theme.colors.fg} size={"4rem"} src={src} />
               </a>
             ))}
           </Container>

@@ -43,8 +43,8 @@ const PlaceHolder = styled.div`
   width: max(11rem, calc(16dvw - 0.1rem));
   height: max(10rem, 15dvw);
   border-radius: 1.5rem;
-  background-color: ${Theme.bg};
-  border: solid 0.5rem ${Theme.emerald};
+  background-color: ${Theme.colors.bg};
+  border: solid 0.5rem ${Theme.colors.emerald};
 
   place-self: center;
 
@@ -52,7 +52,11 @@ const PlaceHolder = styled.div`
     display: none;
   }
 `;
-
+const IntroText = styled(Text)`
+@media screen and (max-width: ${Theme.devices.mobileLg}) {
+  text-align: justify;
+}
+`
 export default function AboutMe() {
   const year = new Date().getFullYear() - 2022;
   return (
@@ -70,15 +74,15 @@ export default function AboutMe() {
         <Title>Sobre mim</Title>
 
         <Container direction="column" gap="1rem 0">
-          <Text align="left">
-            <Text style={{ fontSize: "1.6rem", color: Theme.emerald }}>
+          <IntroText align="left" >
+            <Text style={{ fontSize: "1.6rem", color: Theme.colors.emerald }}>
               Olá
             </Text>
             , sou programador há {year} anos, desenvolvo sites institucionais e
             sistemas para solucionar problemas de empresas de pequeno e médio
             porte que desejam, desde, fortalecer sua presença digital a
             implementar sistemas mais complexos.
-          </Text>
+          </IntroText>
           <Text>
             Meu foco está na experiência do cliente, e para isso considero
             importante:

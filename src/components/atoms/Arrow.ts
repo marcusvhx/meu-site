@@ -6,8 +6,8 @@ const Arrow = styled.div<{side:'l'|'r'}>`
     width: 4rem;
     height: 4rem;
     border-radius:50%;
-    background-color: ${Theme.emerald};
-    border: 0.3rem solid ${Theme.emerald};
+    background-color: ${Theme.colors.emerald};
+    border: 0.3rem solid ${Theme.colors.emerald};
     position: relative;
     cursor:pointer;
     &::before{

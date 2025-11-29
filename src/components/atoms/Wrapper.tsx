@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "../../Theme";
 
 const Wrapper = styled.div<{ show: boolean }>`
   visibility: ${({ show }) => (show ? "visible" : "hidden")};
@@ -17,7 +18,7 @@ const Wrapper = styled.div<{ show: boolean }>`
   gap:1rem;
   background-color: #0008;
 
-  @media screen and (max-width: 51.2rem) {
+  @media screen and (max-width: ${Theme.devices.mobileLg} ) {
     flex-direction: column;
     & .desktop{
       display:none;

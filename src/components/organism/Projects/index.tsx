@@ -38,7 +38,7 @@ const ProjectsSection = styled(Section)`
     grid-area: showBtn;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${Theme.devices.tablet}) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +50,7 @@ const ProjectsSection = styled(Section)`
     #detail1 {
       width: 100%;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: ${Theme.devices.mobileLg}) {
       .projectsContainer {
         flex-direction: column;
       }
@@ -72,16 +72,20 @@ const ProjectsSection = styled(Section)`
 `;
 
 const DevInfoBox = styled(Container)<{ isOpen: boolean }>`
-  height: ${({ isOpen }) => (isOpen ? "fit-content" : 0)};
-  overflow: hidden;
+  @media screen and (max-width: ${Theme.devices.mobileLg}) {
+    height: ${({ isOpen }) => (isOpen ? "fit-content" : 0)};
+    overflow: hidden;
+  }
 `;
 
 const ShowDevInfo = styled(Text)`
-  cursor: pointer;
-  text-decoration: underline;
-  color: ${Theme.emeraldLight};
-  justify-self:end;
-  
+  @media screen and (min-width: ${Theme.devices.mobileLg}) {
+    display: none;
+  }
+    cursor: pointer;
+    text-decoration: underline;
+    color: ${Theme.colors.emeraldLight};
+    justify-self: end;
 `;
 export default function Projects() {
   const [projectType, setProjectType] = useState(0);
@@ -131,15 +135,15 @@ export default function Projects() {
               key={tech.title + idx}
               title={tech.title}
               src={tech.icon}
-              size="min(3rem, 3dvw)"
-              color={Theme.emerald}
+              size="clamp(2rem, 3dvw, 3rem)"
+              color={Theme.colors.emerald}
             />
           ))}
         </ProjectDetails>
       </DevInfoBox>
 
       <ShowDevInfo
-      id='devInfoBtn'
+        id="devInfoBtn"
         onClick={() => setShowDevInfo((old) => !old)}
       >
         {showDevInfo ? "Ocultar informações" : "Informações para devs..."}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "../../Theme";
 
 /**
  * gap - string
@@ -21,7 +22,7 @@ const Section = styled.section<{
   padding: 2rem;
   margin-top: 5rem;
 
-  @media screen and (max-width:600px) {
+  @media screen and (max-width:${Theme.devices.tablet}) {
     padding: 1rem;
     min-height: calc(40rem);
   }

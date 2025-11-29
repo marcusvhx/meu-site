@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { Theme, type tColor } from "../../Theme";
+import { Theme } from "../../Theme";
 
 const Text = styled.p<{
   /** font-size */
   size?: string;
   /** obrigatoriamente uma cor que esteja no tema */
-  color?: tColor;
+  color?: string;
   /** text-align */
   align?: string;
   margin?: string;
@@ -15,7 +15,7 @@ const Text = styled.p<{
   display: inline;
   margin: ${({ margin }) => margin || "0"};
   text-align: ${({ align }) => align || "center"};
-  color: ${({ color }) => Theme[color] || Theme.fg};
+  color: ${({ color }) => color || Theme.colors.fg};
   white-space: pre-line;
 `;
 

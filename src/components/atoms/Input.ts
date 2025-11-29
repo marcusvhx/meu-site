@@ -4,7 +4,7 @@ import { Theme } from "../../Theme";
 const Input = styled.input<{ h: string }>`
   width: 100%;
   min-height: ${({ h }) => h};
-  background-color: ${Theme.fg};
+  background-color: ${Theme.colors.fg};
   color: #000;
   padding-left: 0.5rem;
   font-size: 1.2rem;
@@ -15,7 +15,7 @@ const Input = styled.input<{ h: string }>`
   outline: none;
 
   &:focus {
-    outline: ${Theme.emeraldLight} 0.3rem solid;
+    outline: ${Theme.colors.emeraldLight} 0.3rem solid;
   }
 `;
 

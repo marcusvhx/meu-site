@@ -3,7 +3,7 @@ import { Theme } from "../../Theme";
 
 const TextArea = styled.textarea`
   &:focus {
-    outline: ${Theme.emeraldLight} 0.3rem solid;
+    outline: ${Theme.colors.emeraldLight} 0.3rem solid;
   }
 
   max-width: 100%;
@@ -16,7 +16,7 @@ const TextArea = styled.textarea`
 
   resize: none;
 
-  background-color: ${Theme.fg};
+  background-color: ${Theme.colors.fg};
   color: #000;
 `;
 export default TextArea;

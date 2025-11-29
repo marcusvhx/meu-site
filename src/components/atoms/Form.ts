@@ -7,8 +7,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-
-  border: ${Theme.emerald} solid 0.3rem;
+  border: ${Theme.colors.emerald} solid 0.3rem;
   border-radius: 1rem;
 
   padding: 1rem;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Arrow from "../atoms/Arrow";
 import Wrapper from "../atoms/Wrapper";
 import type { MouseEvent } from "react";
+import { Theme } from "../../Theme";
 
 export type iMouseClickEvent= MouseEvent;
 
@@ -14,7 +15,7 @@ const ImageSlot = styled.div`
 
   overflow: hidden;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${Theme.devices.tablet} ) {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 
