@@ -10,6 +10,8 @@ import ImageGalery from "../../molecules/ImageGalery";
 import { projectsData } from "./projectsData";
 import Container from "../../atoms/Container";
 import Text from "../../atoms/Text";
+import Subtitle from "../../atoms/SubTitle";
+import FloatingContainer from "../../atoms/FloatingContainer";
 
 const ProjectsSection = styled(Section)`
   display: grid;
@@ -27,6 +29,9 @@ const ProjectsSection = styled(Section)`
   }
   #panel {
     grid-area: panel;
+    @media screen and (min-width: ${Theme.devices.tablet}) {
+      min-height: 35rem;
+    }
   }
   #detail1 {
     grid-area: detail1;
@@ -82,10 +87,10 @@ const ShowDevInfo = styled(Text)`
   @media screen and (min-width: ${Theme.devices.mobileLg}) {
     display: none;
   }
-    cursor: pointer;
-    text-decoration: underline;
-    color: ${Theme.colors.emeraldLight};
-    justify-self: end;
+  cursor: pointer;
+  text-decoration: underline;
+  color: ${Theme.colors.emeraldLight};
+  justify-self: end;
 `;
 export default function Projects() {
   const [projectType, setProjectType] = useState(0);
@@ -107,47 +112,62 @@ export default function Projects() {
       <Title id="title">Conheça meu trabalho</Title>
 
       <SelectionPanel projectIdx={projectType} setProjectIdx={setProjectType} />
-
-      <ImageGalery
-        imgs={projectsData[projectType].forNormals.imgs}
-        show={showPics}
-        closeWrapper={handleShowPics}
-      />
-      <ProjectDetails
-        title={projectsData[projectType].forNormals.title}
-        image={projectsData[projectType].forNormals.previewImg}
-        text={projectsData[projectType].forNormals.text}
-        projectLink={projectsData[projectType].forNormals.link}
-        id="datail1"
-        toggleFullscreen={handleShowPics}
-      />
-
-      <DevInfoBox direction="row" isOpen={showDevInfo}>
-        <ProjectDetails
-          title={projectsData[projectType].forDevs.title}
-          image={projectsData[projectType].forDevs.previewImg}
-          text={projectsData[projectType].forDevs.text}
-          isForDevs
-          id="datail2"
+      {projectsData[projectType].forNormals.title == "" ? (
+        <FloatingContainer
+          direction="row"
+          content="center"
+          items="center"
+          w="100%"
+          top="50%"
+          left="50%"
+          style={{ transform: "translate(-50%)" }}
         >
-          {projectsData[projectType].forDevs.stack?.map((tech, idx) => (
-            <TitledIcon
-              key={tech.title + idx}
-              title={tech.title}
-              src={tech.icon}
-              size="clamp(2rem, 3dvw, 3rem)"
-              color={Theme.colors.emerald}
-            />
-          ))}
-        </ProjectDetails>
-      </DevInfoBox>
+          <Subtitle>Ainda em desenvolvimento</Subtitle>
+        </FloatingContainer>
+      ) : (
+        <>
+          <ImageGalery
+            imgs={projectsData[projectType].forNormals.imgs}
+            show={showPics}
+            closeWrapper={handleShowPics}
+          />
+          <ProjectDetails
+            title={projectsData[projectType].forNormals.title}
+            image={projectsData[projectType].forNormals.previewImg}
+            text={projectsData[projectType].forNormals.text}
+            projectLink={projectsData[projectType].forNormals.link}
+            id="datail1"
+            toggleFullscreen={handleShowPics}
+          />
 
-      <ShowDevInfo
-        id="devInfoBtn"
-        onClick={() => setShowDevInfo((old) => !old)}
-      >
-        {showDevInfo ? "Ocultar informações" : "Informações para devs..."}
-      </ShowDevInfo>
+          <DevInfoBox direction="row" isOpen={showDevInfo}>
+            <ProjectDetails
+              title={projectsData[projectType].forDevs.title}
+              image={projectsData[projectType].forDevs.previewImg}
+              text={projectsData[projectType].forDevs.text}
+              isForDevs
+              id="datail2"
+            >
+              {projectsData[projectType].forDevs.stack?.map((tech, idx) => (
+                <TitledIcon
+                  key={tech.title + idx}
+                  title={tech.title}
+                  src={tech.icon}
+                  size="clamp(2rem, 4dvw, 3rem)"
+                  color={Theme.colors.emerald}
+                />
+              ))}
+            </ProjectDetails>
+          </DevInfoBox>
+
+          <ShowDevInfo
+            id="devInfoBtn"
+            onClick={() => setShowDevInfo((old) => !old)}
+          >
+            {showDevInfo ? "Ocultar informações" : "Informações para devs..."}
+          </ShowDevInfo>
+        </>
+      )}
     </ProjectsSection>
   );
 }

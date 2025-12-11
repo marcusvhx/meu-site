@@ -82,7 +82,7 @@ export default function ProjectDetails({
         </Subtitle>
         <Text align={isForDevs ? "right" : "left"}>{text}</Text>
         {isForDevs && (
-          <Container direction="row" gap="0.8rem" content="end" items="center">
+          <Container direction="row" gap="0.8rem" items="center">
             <Text>Stack:</Text>
             {children}
           </Container>

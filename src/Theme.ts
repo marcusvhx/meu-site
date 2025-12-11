@@ -18,7 +18,7 @@ export const Theme = {
     emeraldDark: "#2B513D",
   },
   devices: {
-    tablet: "768px",
+    tablet: "769px",
     mobileLg: "628px",
     mobileMd: "560px",
     mobileSm: "460px",
