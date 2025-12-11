@@ -55,7 +55,7 @@ export const projectsData: iProjectsData[] = [
       link: "https://paisdepetcandeias.vercel.app",
       previewImg: pdpMockup,
       title: "Pais de Pet",
-      text: "A pais de pet é um centro de cuidados para pets. A empresa queria fortalecer sua preseça digital e fornecer uma imagem mais profissional para os clientes, para solucionar isso, com o auxílio de uma designer, construi um site com visual moderno e amigável, enfatizando a missão da empresa.\n O objetivo principal do desse projeto era criar uma carta de apresentação para que os clientes entandam os valores e conheçam seus profissionais, serviços e opiniões de pessoas que já foram atendidas.",
+      text: "A pais de pet é um centro de cuidados para pets. A empresa queria fortalecer sua presença digital e fornecer uma imagem mais profissional para os clientes, para solucionar isso, com o auxílio de um designer, construí um site com visual moderno e amigável, enfatizando a missão da empresa. O objetivo principal do desse projeto era criar uma carta de apresentação para que os clientes entendam os valores e conheçam seus profissionais, serviços e opiniões de pessoas que já foram atendidas.",
       imgs: [
         pdpMockup,
         pdp1,
